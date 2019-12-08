@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+#
+# This scripts runs the regression tests
+# based on UTkamene.
+#
+
+DIR=$(dirname $0)/..
+if [ "$*" == "" ]
+then
+    PYTHONPATH=$DIR exec python3 ${DIR}/kamene/tools/UTkamene.py -t regression.uts -f html -o /tmp/kamene_regression_test_$(date +%Y%M%d-%H%H%S).html
+else
+    PYTHONPATH=$DIR exec python3 ${DIR}/kamene/tools/UTkamene.py "$@"
+fi
